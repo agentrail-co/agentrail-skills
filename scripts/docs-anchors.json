@@ -1,0 +1,22 @@
+{
+  "pages": {
+    "https://www.agentrail.co/docs/guides/setup.md": ["Company website", "Create workspace", "Finish setup"],
+    "https://www.agentrail.co/docs/guides/get-started.md": ["Record every request", "Send a test report", "Connect your own agent"],
+    "https://www.agentrail.co/docs/cli/introduction.md": ["npm install -g agentrail-cli@latest", "agentrail login", "agentrail doctor"],
+    "https://www.agentrail.co/docs/cli/coding-agents.md": ["\"status\": \"pending\"", "verificationUrl", "userCode", "agentrail agent setup", "--insecure-storage"],
+    "https://www.agentrail.co/docs/guides/journeys-edge.md": ["npm install agentrail-edge", "createEdge", "cloudflare(ctx)", "vercel({", "/ingest/events", "AGENTRAIL_SECRET", "AGENTRAIL_HASH_KEY", "prepareOriginRequest", "proxy.ts"],
+    "https://www.agentrail.co/docs/guides/journeys-browser.md": ["/agentrail.js", "data-key", "data-first-party", "traceparent", "npm install agentrail-browser", "/ingest/browser"],
+    "https://www.agentrail.co/docs/guides/journeys-node.md": ["npm install agentrail-node", "/ingest/otlp", "node --import", "agentrail.identify", "agentrail-node/mcp", "capture.tool", "createProcessors", "diagnostics()"],
+    "https://www.agentrail.co/docs/guides/journeys-go.md": ["go get github.com/agentrail-co/agentrail-go@latest", "agentrail.New", "capture.Middleware", "capture.Identify", "capturemcp.Tool", "NewProcessors"],
+    "https://www.agentrail.co/docs/guides/journeys-python.md": ["pip install agentrail-python", "ar.init", "AgentrailASGIMiddleware", "agentrail.wsgi", "agentrail.identify", "mcp_capture", "create_processors"],
+    "https://www.agentrail.co/docs/guides/journeys-own-servers.md": ["ignoreRequest", "ignoreIncomingRequest", "IgnoreIncomingRequest", "ignore_incoming_request"],
+    "https://www.agentrail.co/docs/guides/feedback.md": ["New project", "Copy prompt", "Copy test prompt", "AGENTRAIL_FEEDBACK_SECRET", "Feedback-Timestamp", "Feedback-Signature", "\"test\": true", "Add placement"],
+    "https://www.agentrail.co/docs/guides/agent-readiness.md": ["Scan now", "Documentation and application URLs"]
+  },
+  "npm": {
+    "agentrail-cli": "0.1.0",
+    "agentrail-node": "0.4.1",
+    "agentrail-edge": "0.4.1",
+    "agentrail-browser": "0.4.1"
+  }
+}

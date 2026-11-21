@@ -1,0 +1,23 @@
+{
+  "name": "agentrail-skills",
+  "owner": {
+    "name": "Agentrail"
+  },
+  "metadata": {
+    "description": "Agentrail's Agent Skills: set up Agentrail and get more from it.",
+    "version": "0.1.0"
+  },
+  "plugins": [
+    {
+      "name": "agentrail-getting-started",
+      "source": "./",
+      "strict": false,
+      "description": "Sets up Agentrail end to end, one step at a time, and proves each step works, so the person never has to work out what comes next.",
+      "version": "0.1.0",
+      "license": "Apache-2.0",
+      "skills": [
+        "./skills/agentrail-getting-started"
+      ]
+    }
+  ]
+}
