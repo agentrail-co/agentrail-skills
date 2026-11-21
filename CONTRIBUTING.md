@@ -60,5 +60,10 @@ pull request.
 1. Bump `version` in `package.json`, and `metadata.version` of each skill that
    changed. Run `npm run build`.
 2. Merge to `main`. `npx github:agentrail-co/agentrail-skills` serves `main`.
-3. Tag `vX.Y.Z` and push the tag. The release workflow attaches a ZIP of each
-   skill, for Claude.ai and Claude Desktop.
+3. Tag `vX.Y.Z` and push the tag. The release workflow checks the commit,
+   attaches a ZIP of each skill to a GitHub release (for Claude.ai and Claude
+   Desktop), and publishes the package to npm once a maintainer approves the
+   `npm` environment run in GitHub Actions. npm trusts that workflow and
+   environment, so no npm token is stored anywhere, and every version carries
+   provenance. A version with a hyphen (`0.2.0-dev.1`) goes to npm's `next`
+   tag and is a GitHub pre-release.
