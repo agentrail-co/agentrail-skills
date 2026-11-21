@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 // Installs Agentrail's Agent Skills into the skills folders of the AI coding
 // agents on this computer: interactive by default, or with flags for scripts
-// and agents. Run it with `npx github:agentrail-co/agentrail-skills`.
+// and agents. Run it with `npx agentrail-skills@latest`.
 
 import { readFileSync } from 'node:fs';
 import { homedir } from 'node:os';
@@ -23,11 +23,13 @@ import { createUi } from '../src/ui.mjs';
 const REPOSITORY = 'agentrail-co/agentrail-skills';
 const RELEASES = `https://github.com/${REPOSITORY}/releases/latest/download`;
 const VERSION = JSON.parse(readFileSync(join(PACKAGE_ROOT, 'package.json'), 'utf8')).version;
+// `@latest`, so npx fetches the newest release instead of reusing a cached one.
+const RUN = 'npx agentrail-skills@latest';
 
 const HELP = `agentrail-skills ${VERSION}: install Agentrail's Agent Skills for your AI coding agents
 
 Usage
-  npx github:${REPOSITORY} [command] [options]
+  ${RUN} [command] [options]
 
 Commands
   install     Install skills (the default). Asks what to install unless --yes.
@@ -49,9 +51,9 @@ Options
   -v, --version      Show the version.
 
 Examples
-  npx github:${REPOSITORY}
-  npx github:${REPOSITORY} install --agent claude-code,codex --scope project --yes
-  npx github:${REPOSITORY} pack --skill agentrail-getting-started`;
+  ${RUN}
+  ${RUN} install --agent claude-code,codex --scope project --yes
+  ${RUN} pack --skill agentrail-getting-started`;
 
 function usageError(message) {
   process.stderr.write(`${message}\nRun with --help to see the options.\n`);
@@ -213,7 +215,7 @@ async function install(args, context) {
   say('');
   say(`  Using Claude.ai or Claude Desktop? Download ${style.cyan(`${RELEASES}/${firstSkill}.zip`)}`);
   say('  and upload it under Customize › Skills (code execution must be on).');
-  say(style.dim(`  Update later with: npx github:${REPOSITORY} update`));
+  say(style.dim(`  Update later with: ${RUN} update`));
   say('');
   return failed.length > 0 ? 1 : 0;
 }

@@ -27,14 +27,17 @@ go straight into your secret store, never through the chat.
 ### Install it
 
 ```sh
-npx github:agentrail-co/agentrail-skills
+npx agentrail-skills@latest
 ```
 
 The installer asks three questions: which skills, every project or only this
 one, and which agents (it finds the ones on your computer). It shows what it
 will write, installs, checks every file, and tells you how to start the skill
 in each agent. It needs Node.js 20 or later, copies files only, and sends
-nothing anywhere.
+nothing anywhere. `@latest` makes npx fetch the newest release instead of
+reusing a copy it ran before. Every release on
+[npm](https://www.npmjs.com/package/agentrail-skills) is built by this
+repository's release workflow and carries signed provenance.
 
 Then open your agent in your project and say:
 
@@ -57,7 +60,8 @@ be added here. Each one stands alone.
 
 | Where                         | How                                                                                                         |
 | ----------------------------- | ----------------------------------------------------------------------------------------------------------- |
-| Any agent, without questions  | `npx github:agentrail-co/agentrail-skills install --agent detected --yes`                                   |
+| Any agent, without questions  | `npx agentrail-skills@latest install --agent detected --yes`                                                |
+| Unreleased changes on `main`  | `npx github:agentrail-co/agentrail-skills` (needs git)                                                      |
 | Claude Code plugin            | `/plugin marketplace add agentrail-co/agentrail-skills`, then `/plugin install agentrail-getting-started@agentrail-skills` |
 | The `skills` CLI              | `npx skills add agentrail-co/agentrail-skills`                                                              |
 | Claude.ai or Claude Desktop   | Download [`agentrail-getting-started.zip`](https://github.com/agentrail-co/agentrail-skills/releases/latest/download/agentrail-getting-started.zip) and upload it under **Customize › Skills**. Code execution must be on. |
@@ -85,9 +89,9 @@ copies are the same. Sources for every path are in
 ## Keep them up to date
 
 ```sh
-npx github:agentrail-co/agentrail-skills list        # what is installed, and whether each copy is intact
-npx github:agentrail-co/agentrail-skills update      # reinstall every copy at the newest version
-npx github:agentrail-co/agentrail-skills uninstall   # remove the copies this installer made
+npx agentrail-skills@latest list        # what is installed, and whether each copy is intact
+npx agentrail-skills@latest update      # reinstall every copy at the newest version
+npx agentrail-skills@latest uninstall   # remove the copies this installer made
 ```
 
 The installer only updates or removes folders it made itself. It marks each

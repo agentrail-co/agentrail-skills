@@ -53,7 +53,7 @@ So the installer writes at most four folders per scope: `.claude/skills`,
 - **No questions without a terminal** unless `--yes` (or
   `AGENTRAIL_SKILLS_PROMPTS=1` for piped answers), so an agent running the
   installer never hangs on a prompt.
-- **No dependencies at run time**, so `npx github:…` starts fast and installs
+- **No dependencies at run time**, so `npx agentrail-skills@latest` starts fast and installs
   nothing but this package. `yaml` is used only by `scripts/validate.mjs`.
 
 ## After installing

@@ -59,7 +59,9 @@ pull request.
 
 1. Bump `version` in `package.json`, and `metadata.version` of each skill that
    changed. Run `npm run build`.
-2. Merge to `main`. `npx github:agentrail-co/agentrail-skills` serves `main`.
+2. Merge to `main`. `npx github:agentrail-co/agentrail-skills` serves `main`
+   at once; people running `npx agentrail-skills@latest` get the change only
+   when you release it.
 3. Tag `vX.Y.Z` and push the tag. The release workflow checks the commit,
    attaches a ZIP of each skill to a GitHub release (for Claude.ai and Claude
    Desktop), and publishes the package to npm once a maintainer approves the
