@@ -33,7 +33,7 @@ npx github:agentrail-co/agentrail-skills
 The installer asks three questions: which skills, every project or only this
 one, and which agents (it finds the ones on your computer). It shows what it
 will write, installs, checks every file, and tells you how to start the skill
-in each agent. It needs Node.js 18 or later, copies files only, and sends
+in each agent. It needs Node.js 20 or later, copies files only, and sends
 nothing anywhere.
 
 Then open your agent in your project and say:

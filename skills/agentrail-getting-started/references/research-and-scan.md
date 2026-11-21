@@ -31,6 +31,10 @@ A scan checks how well agents can find, read and use the public website, docs
 and API, and gives a score out of 100 with the fixes behind it. Any member can
 start one. It fetches their sites over the internet, so ask first.
 
+It scans the website given when the workspace was created, plus any
+documentation and application URLs in the readiness settings. Don't ask the
+person for a URL: `agentrail readiness get-settings` shows what it will scan.
+
 1. Start it: `agentrail readiness start-scan` (MCP: `readiness_start_scan`).
    It returns the scan at once, or the one already running; calling it twice
    never starts a second. In the web app: **Agent readiness**, then **Scan

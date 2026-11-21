@@ -3,12 +3,13 @@
 // `zip`, or `tar -a` (bsdtar, on macOS and Windows 10 and later).
 
 import { spawnSync } from 'node:child_process';
-import { existsSync, rmSync } from 'node:fs';
+import { existsSync, mkdirSync, rmSync } from 'node:fs';
 import { basename, dirname, resolve } from 'node:path';
 
 import { onPath } from './harnesses.mjs';
 
 export function pack(skill, outDir) {
+  mkdirSync(outDir, { recursive: true });
   const out = resolve(outDir, `${skill.name}.zip`);
   rmSync(out, { force: true });
   const cwd = dirname(skill.dir);

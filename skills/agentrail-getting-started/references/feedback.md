@@ -78,7 +78,7 @@ completes `feedback_setup`. Check with `agentrail feedback list-placements
 
 Only once the address is final (a test report fixes it). Pick one:
 
-- **From here** (quickest), with Node 18 or later:
+- **From here** (quickest), with Node 20 or later:
 
   ```sh
   node <this skill's folder>/scripts/send-test-report.mjs <hosted page, card or collection address>
