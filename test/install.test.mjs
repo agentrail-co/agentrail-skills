@@ -89,25 +89,40 @@ test('without a terminal it refuses to ask, rather than hang', async () => {
   assert.ok(!existsSync(join(box.home, '.claude')));
 });
 
-test('asks which scope and agents, shows the plan, and installs on yes', async () => {
+test('asks which skills, scope and agents, shows the plan, and installs on yes', async () => {
   const box = sandbox(['claude']);
+  // Enter keeps the recommended skill ticked.
   const result = await run(box, [], {
-    input: '2\n1,2\ny\n',
+    input: '\n2\n1,2\ny\n',
     env: { AGENTRAIL_SKILLS_PROMPTS: '1' },
   });
   assert.equal(result.code, 0, result.stderr);
+  assert.match(result.stdout, /Which skills\?/);
   assert.match(result.stdout, /Found on this computer: Claude Code/);
   assert.match(result.stdout, /This will install:/);
   assert.ok(existsSync(join(box.project, '.claude', 'skills', SKILL, 'SKILL.md')));
   assert.ok(existsSync(join(box.project, '.agents', 'skills', SKILL, 'SKILL.md')));
+  assert.ok(!existsSync(join(box.project, '.claude', 'skills', 'agentrail-check-readiness')));
 });
 
 test('installs nothing when the answer to "Install now?" is no', async () => {
   const box = sandbox(['claude']);
-  const result = await run(box, [], { input: '1\n\nn\n', env: { AGENTRAIL_SKILLS_PROMPTS: '1' } });
+  const result = await run(box, [], { input: '\n1\n\nn\n', env: { AGENTRAIL_SKILLS_PROMPTS: '1' } });
   assert.equal(result.code, 0, result.stderr);
   assert.match(result.stdout, /Nothing was installed/);
   assert.ok(!existsSync(join(box.home, '.claude', 'skills')));
+});
+
+test('says how to start the skill it installed', async () => {
+  const box = sandbox();
+  const result = await run(box, ['install', '--agent', 'claude-code', '--skill', 'agentrail-check-readiness', '--yes']);
+  assert.equal(result.code, 0, result.stderr);
+  assert.match(result.stdout, /say "Check how agent-ready example\.com is" \(or type \/agentrail-check-readiness\)/);
+  assert.ok(!existsSync(join(box.home, '.claude', 'skills', SKILL)));
+
+  const other = sandbox();
+  const started = await run(other, ['install', '--agent', 'claude-code', '--yes']);
+  assert.match(started.stdout, /say "Set up Agentrail" \(or type \/agentrail-getting-started\)/);
 });
 
 test('--dry-run changes nothing', async () => {

@@ -79,6 +79,7 @@ export function fileHashes(dir, files = listFiles(dir)) {
  * @property {string} description
  * @property {string} version
  * @property {boolean} recommended
+ * @property {string} prompt  what a person says to start it, from `metadata.prompt`
  * @property {string} dir
  */
 
@@ -96,6 +97,7 @@ export function loadSkills(root = SKILLS_ROOT) {
         description: frontmatter.description,
         version: frontmatter.metadata.version ?? '0.0.0',
         recommended: frontmatter.metadata.recommended === 'true',
+        prompt: frontmatter.metadata.prompt ?? 'Set up Agentrail',
         dir,
       };
     })
