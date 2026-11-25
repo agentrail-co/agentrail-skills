@@ -27,7 +27,7 @@ export const HARNESSES = [
     configDirs: ['.claude'],
     userDir: '.claude/skills',
     projectDir: '.claude/skills',
-    start: 'open Claude Code in your project and say "Set up Agentrail" (or type /{skill})',
+    start: 'open Claude Code in your project and say "{prompt}" (or type /{skill})',
   },
   {
     id: 'codex',
@@ -36,7 +36,7 @@ export const HARNESSES = [
     configDirs: ['.codex'],
     userDir: '.agents/skills',
     projectDir: '.agents/skills',
-    start: 'start a new Codex session and say "Set up Agentrail" (or type ${skill})',
+    start: 'start a new Codex session and say "{prompt}" (or type ${skill})',
   },
   {
     id: 'cursor',
@@ -45,7 +45,7 @@ export const HARNESSES = [
     configDirs: ['.cursor'],
     userDir: '.agents/skills',
     projectDir: '.agents/skills',
-    start: 'open a new Agent chat and say "Set up Agentrail" (or type /{skill})',
+    start: 'open a new Agent chat and say "{prompt}" (or type /{skill})',
   },
   {
     id: 'copilot',
@@ -54,7 +54,7 @@ export const HARNESSES = [
     configDirs: ['.copilot'],
     userDir: '.agents/skills',
     projectDir: '.agents/skills',
-    start: 'in agent mode, say "Set up Agentrail" (or type /{skill})',
+    start: 'in agent mode, say "{prompt}" (or type /{skill})',
   },
   {
     id: 'gemini',
@@ -63,7 +63,7 @@ export const HARNESSES = [
     configDirs: ['.gemini'],
     userDir: '.agents/skills',
     projectDir: '.agents/skills',
-    start: 'start Gemini CLI, say "Set up Agentrail" and allow the skill when it asks',
+    start: 'start Gemini CLI, say "{prompt}" and allow the skill when it asks',
   },
   {
     id: 'windsurf',
@@ -72,7 +72,7 @@ export const HARNESSES = [
     configDirs: ['.codeium/windsurf', '.config/devin'],
     userDir: '.agents/skills',
     projectDir: '.agents/skills',
-    start: 'in Cascade, say "Set up Agentrail" (or type /{skill})',
+    start: 'in Cascade, say "{prompt}" (or type /{skill})',
   },
   {
     id: 'opencode',
@@ -81,7 +81,7 @@ export const HARNESSES = [
     configDirs: ['.config/opencode'],
     userDir: '.agents/skills',
     projectDir: '.agents/skills',
-    start: 'start OpenCode and say "Set up Agentrail"',
+    start: 'start OpenCode and say "{prompt}"',
   },
   {
     id: 'goose',
@@ -90,7 +90,7 @@ export const HARNESSES = [
     configDirs: ['.config/goose'],
     userDir: '.agents/skills',
     projectDir: '.agents/skills',
-    start: 'start a new Goose session and say "Set up Agentrail"',
+    start: 'start a new Goose session and say "{prompt}"',
   },
   {
     id: 'amp',
@@ -99,7 +99,7 @@ export const HARNESSES = [
     configDirs: ['.config/amp'],
     userDir: '.agents/skills',
     projectDir: '.agents/skills',
-    start: 'start a new Amp thread and say "Set up Agentrail"',
+    start: 'start a new Amp thread and say "{prompt}"',
   },
   {
     id: 'cline',
@@ -108,7 +108,7 @@ export const HARNESSES = [
     configDirs: ['.cline'],
     userDir: '.cline/skills',
     projectDir: '.cline/skills',
-    start: 'start a new Cline task and say "Set up Agentrail" (or type /{skill})',
+    start: 'start a new Cline task and say "{prompt}" (or type /{skill})',
   },
   {
     id: 'kiro',
@@ -117,7 +117,7 @@ export const HARNESSES = [
     configDirs: ['.kiro'],
     userDir: '.kiro/skills',
     projectDir: '.kiro/skills',
-    start: 'open Kiro chat and say "Set up Agentrail" (or type /{skill})',
+    start: 'open Kiro chat and say "{prompt}" (or type /{skill})',
   },
 ];
 

@@ -39,7 +39,9 @@ pull request.
   naming the nearest other skill's job, so two skills never compete.
 - **Frontmatter** only: `name`, `description`, `license`, `compatibility`,
   `metadata` (all values quoted strings, including `version`). `name` and
-  `description` on one line each.
+  `description` on one line each. `metadata.prompt` is what a person says to
+  start the skill; the installer shows it after installing, and uses "Set up
+  Agentrail" when it is missing.
 - **SKILL.md under 500 lines.** It holds the order of the work and the rules.
   Detail goes in `references/`, one level deep, each file saying when to read
   it. A reference over 100 lines starts with `## Contents`.

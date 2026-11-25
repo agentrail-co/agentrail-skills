@@ -18,6 +18,17 @@
       "skills": [
         "./skills/agentrail-getting-started"
       ]
+    },
+    {
+      "name": "agentrail-check-readiness",
+      "source": "./",
+      "strict": false,
+      "description": "Checks how ready any website, MCP server or MCP App is for AI agents with Agentrail's free agent readiness checker, the same scan as agentrail.co/agent-readiness/checker.",
+      "version": "0.1.0",
+      "license": "Apache-2.0",
+      "skills": [
+        "./skills/agentrail-check-readiness"
+      ]
     }
   ]
 }

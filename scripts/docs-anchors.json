@@ -11,7 +11,10 @@
     "https://www.agentrail.co/docs/guides/journeys-python.md": ["pip install agentrail-python", "ar.init", "AgentrailASGIMiddleware", "agentrail.wsgi", "agentrail.identify", "mcp_capture", "create_processors"],
     "https://www.agentrail.co/docs/guides/journeys-own-servers.md": ["ignoreRequest", "ignoreIncomingRequest", "IgnoreIncomingRequest", "ignore_incoming_request"],
     "https://www.agentrail.co/docs/guides/feedback.md": ["New project", "Copy prompt", "Copy test prompt", "AGENTRAIL_FEEDBACK_SECRET", "Feedback-Timestamp", "Feedback-Signature", "\"test\": true", "Add placement"],
-    "https://www.agentrail.co/docs/guides/agent-readiness.md": ["Scan now", "Documentation and application URLs"]
+    "https://www.agentrail.co/docs/guides/agent-readiness.md": ["Scan now", "Documentation and application URLs"],
+    "https://www.agentrail.co/docs/api-reference/leaderboard/get-leaderboard-company.md": ["operationId: getLeaderboardCompany", "/v1/leaderboard/companies/{domain}", "scannedAt", "community"],
+    "https://www.agentrail.co/docs/api-reference/leaderboard/start-leaderboard-scan.md": ["operationId: startLeaderboardScan", "/v1/leaderboard/scans", "email", "security: []"],
+    "https://www.agentrail.co/docs/api-reference/leaderboard/get-leaderboard-scan.md": ["operationId: getLeaderboardScan", "/v1/leaderboard/scans/{scanId}", "sign_in_required", "events"]
   },
   "npm": {
     "agentrail-cli": "0.1.0",

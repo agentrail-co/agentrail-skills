@@ -6,6 +6,7 @@ compatibility: Any agent that reads Agent Skills. Say here if a step needs a she
 metadata:
   author: Agentrail
   version: "0.1.0"
+  prompt: "What a person would say to start this skill"
 ---
 
 # One line on the job

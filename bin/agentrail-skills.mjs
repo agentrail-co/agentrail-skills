@@ -207,11 +207,12 @@ async function install(args, context) {
   // 6. What to do next
   const installedFor = new Set(results.filter((result) => result.ok).flatMap((result) => result.harnesses));
   const firstSkill = chosenSkills[0].name;
+  const firstPrompt = chosenSkills[0].prompt;
   say(style.green(style.bold(`  Installed. ${failed.length > 0 ? 'Some copies were skipped; see above.' : 'Every copy was checked.'}`)));
   say('');
   say(style.bold('  Next, in your project:'));
   for (const harness of harnesses.filter((h) => installedFor.has(h.name)))
-    say(`    • ${harness.name}: ${harness.start.replaceAll('{skill}', firstSkill)}`);
+    say(`    • ${harness.name}: ${harness.start.replaceAll('{skill}', firstSkill).replaceAll('{prompt}', firstPrompt)}`);
   say('');
   say(`  Using Claude.ai or Claude Desktop? Download ${style.cyan(`${RELEASES}/${firstSkill}.zip`)}`);
   say('  and upload it under Customize › Skills (code execution must be on).');

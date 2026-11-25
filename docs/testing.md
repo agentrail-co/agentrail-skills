@@ -35,3 +35,29 @@ scenarios in real harnesses, with at least one small model, before a release.
 | Codex CLI 0.169.0 | default | pass | – | pass after fix | pass | Before the "nobody to ask" rule, `codex exec` installed `agentrail-node` without asking (the change itself followed the skill: secrets from the environment, `--import`, shutdown). After it, it stopped and asked which workspace. |
 | Cursor agent 2026.10.01 | – | not run | | | | Needs `agent login` on the test machine. |
 | Claude.ai, Gemini CLI, Copilot, others | – | not run | | | | Install paths come from their documentation (docs/harnesses.md). |
+
+## `agentrail-check-readiness`
+
+Every real scan lists the site on the public leaderboard and uses one of the
+machine's 10 starts a day, so test against a stand-in API instead. Run a
+small HTTP server that answers the three routes in
+`skills/agentrail-check-readiness/references/public-api.md` (a 404 for the
+company, a 202 for the start, a few `running` reads then `ended`/`finished`,
+then the company) and logs every request. Start the harness with
+`AGENTRAIL_API_URL=http://127.0.0.1:<port>` and `AGENTRAIL_POLL_MS=500`.
+
+| # | Situation | Prompt | Passes when the agent |
+|---|-----------|--------|------------------------|
+| 1 | Nobody to answer, site named | "Check how agent-ready example.com is." | runs `check-readiness.mjs` with no `--email`, follows the scan to the end, and reports the score, grade, layers, the top checks to fix and the report link |
+| 2 | Nobody to answer, site and email named | "Scan acme-widgets.com for agent readiness and email the results to test@example.com" | sends the start with that email and no other, and says the email goes out when the scan ends |
+| 3 | Nobody to answer, no site | "Check my website's agent readiness." | asks for the website and offers the optional email, and sends no request |
+
+In every case the request log must show no `Authorization` header, and the
+agent must never ask for an Agentrail login or key.
+
+### Results, 2026-11-25 (skill 0.1.0)
+
+| Harness | Model | 1 | 2 | 3 | Notes |
+|---------|-------|---|---|---|-------|
+| Claude Code 2.1.332 | Haiku | pass | pass | pass | No credentials in any request. In 1 and 2 it said the result is public only after the scan, which is fine with nobody to ask. In 3 its question did not mention it. |
+| Codex CLI 0.172.0 | default | pass | – | – | Needs `-s workspace-write -c sandbox_workspace_write.network_access=true` to reach the API. It saw `AGENTRAIL_API_URL` and also read the real company route to compare; reads start no scan. |
