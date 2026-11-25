@@ -5,7 +5,7 @@
   },
   "metadata": {
     "description": "Agentrail's Agent Skills: set up Agentrail and get more from it.",
-    "version": "0.1.1"
+    "version": "0.2.0"
   },
   "plugins": [
     {
